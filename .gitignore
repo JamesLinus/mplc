@@ -250,3 +250,8 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+/mplc/building.hpp
+/mplc/mplc.vcxproj
+/mplc/mplc.vcxproj.filters
+/mplc/test.cpp
+/mplc.sln
