@@ -25,27 +25,21 @@ int main(){
 }
 ````
 
-## for-statement
-````cpp
-struct forbody {
-	void operator()(int cnt) {
-		std::cout << "helloworld at "<<cnt<< std::endl;
-	}
-};
-
-...
-forbody fb;
-for_<0,10>::for_(fb);
-````
-
 ## while-statement
 ````cpp
-struct whilebody {
-	void operator()(int cnt) {
-		std::cout << "helloworld at "<<cnt<< std::endl;
-	}
-};
-...
-whilebody wb;
-while_<10>::while_(wb);
+#include "operator_less_.hpp"
+#includue "int_.hpp"
+#include "if_.hpp"
+#inlcude "while_hpp"
+#include "bool_.hpp"
+
+int main() {
+	using namespace mplc;
+	while_ <
+		if_<
+		less<int_<9>, int_<7>>
+		>::then_<true_>::else_<false_>::type
+	> t;
+	return 0;
+}
 ````

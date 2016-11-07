@@ -1,23 +1,13 @@
 #pragma once
 
-namespace mplc {
-	template<int _range_end>
-	struct while_ {
-		static const int range_end = _range_end;
-		int range_start = 0;
-		template<typename _usr_meta_function_class>
-		while_(_usr_meta_function_class metafunc) {
-			while_impl(metafunc);
-		}
+#include "bool_.hpp"
 
-	private:
-		template<typename _usr_meta_function_class>
-		void while_impl(_usr_meta_function_class metafunc) {
-			if (range_end == range_start)//impure
-				return;					 //impure
-			metafunc(range_start);
-			range_start++;				 //impure
-			while_impl(metafunc);
-		}
+namespace mplc {
+	template<class ..._while_body>
+	struct while_ {
+		static const int value = while_<_while_body...>::value;
+	};
+	template<class ..._while_body> struct while_<false_,_while_body...> {
+		static const int value = 0;
 	};
 }
