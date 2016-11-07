@@ -7,15 +7,22 @@ mplc
 
 ## if-statement
 ````cpp
-struct ifbody_a {
-	void operator()() {
-		std::cout << "if body a" << std::endl;
-	}
-};
+#include <iostream>
+#include "if_.hpp"
 
-...
-ifbody_a ifa;
-if_<bool_<true>>::if_(ifa);
+int main(){
+	using namespace mplc;
+	if_ <
+		int_<1>
+	>::then_<
+		if_<bool_<true>>::then_<long>::type
+	>::else_<
+		double
+	>::type longa;
+	longa = 5000;
+	std::cout<<longa;
+	return 0;
+}
 ````
 
 ## for-statement
